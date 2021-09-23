@@ -26,6 +26,7 @@ public class PaymentController {
 
     @PostMapping("/save")
     public String createPayment(@RequestBody Payment payment){
+
         paymentRepo.save(payment);
         return "created";
     }
@@ -33,7 +34,7 @@ public class PaymentController {
 
     @GetMapping("/findAll")
     public Page<Payment> findAll(){
-        Page<Payment> page = paymentRepo.findAll(PageRequest.of(0,3, Sort.Direction.ASC,"id"));
+        Page<Payment> page = paymentRepo.findAll(PageRequest.of(0,5, Sort.Direction.ASC,"id"));
         return page;
     }
 
