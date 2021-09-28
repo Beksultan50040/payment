@@ -10,4 +10,5 @@ public class ClientDto {
 
     private String senderName;
     private String receiverName;
+    private String email;
 }

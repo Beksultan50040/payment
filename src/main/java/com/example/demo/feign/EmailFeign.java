@@ -9,15 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient(name = "eureka-client-service")
-public interface ClientFeign {
-
-    @GetMapping("/api/v1/client/findAll")
-    List<ClientDto> findAll();
+@FeignClient(name = "eureka-email-service")
+public interface EmailFeign {
 
 
-
-    @GetMapping("/api/v1/client/{id}")
-    ClientDto findById(@RequestParam Long id);
-
+    @PostMapping("/email//simple-email/")
+    String sendEmail(@RequestParam String email);
 }

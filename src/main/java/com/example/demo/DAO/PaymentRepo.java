@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface PaymentRepo extends ElasticsearchRepository<Payment, String> {
 
-    Page<Payment> findAll();
+//    Page<Payment> findAll();
     List<Payment> findByType(String type);
 }
