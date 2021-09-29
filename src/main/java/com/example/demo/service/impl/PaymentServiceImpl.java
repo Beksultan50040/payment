@@ -41,7 +41,8 @@ public class PaymentServiceImpl implements PaymentService {
             paymentRepo.save(payment);
             ClientDto clientDto = clientFeign.findById(payment.getClientId());
 
-            emailFeign.sendEmail(clientDto.getEmail());
+            emailFeign.clientEmail(clientDto.getEmail());
+            emailFeign.workerEmail(payment.getId());
             return "created";
 
     }

@@ -13,6 +13,9 @@ import java.util.List;
 public interface EmailFeign {
 
 
-    @PostMapping("/email//simple-email/")
-    String sendEmail(@RequestParam String email);
+    @PostMapping("/email/client-email/")
+    String clientEmail(@RequestParam String email);
+
+    @PostMapping("/email/worker-email/")
+    String workerEmail(@RequestParam String id);
 }
