@@ -32,19 +32,19 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public String save(Payment payment) {
 
+        paymentRepo.save(payment);
+
+        ClientDto clientDto = clientFeign.findById(payment.getClientId());
+
+        emailFeign.clientEmail(clientDto.getEmail());
+        emailFeign.workerEmail(payment.getId());
+        return "created";
+
 //        ClientDto clientDto = clientFeign.findById(payment.getClientId());
 //
 //        if(clientDto==null){
 //            return "there is no such user";
 //        }
-
-            paymentRepo.save(payment);
-            ClientDto clientDto = clientFeign.findById(payment.getClientId());
-
-            emailFeign.clientEmail(clientDto.getEmail());
-            emailFeign.workerEmail(payment.getId());
-            return "created";
-
     }
 
     @Override
