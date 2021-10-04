@@ -24,4 +24,7 @@ public class Payment {
     private Long clientId;
 
     private List<Type> type;
+
+    @Field(type = FieldType.Keyword)
+    private double totalCost;
 }

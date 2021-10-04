@@ -14,6 +14,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PaymentServiceImpl implements PaymentService {
 
@@ -32,12 +34,18 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public String save(Payment payment) {
 
+        // Calculate the total cost of payments and save it
+        payment.setTotalCost(payment.getType().stream().mapToDouble(o->o.getCost()).sum());
         paymentRepo.save(payment);
 
+        // Get all the data of the client by sending client id to the Client - Service
         ClientDto clientDto = clientFeign.findById(payment.getClientId());
 
-//        emailFeign.clientEmail(clientDto.getEmail());
-//        emailFeign.workerEmail(payment.getId());
+        // Send email to the client
+        emailFeign.clientEmail(clientDto.getEmail());
+
+        // Send email to the worker
+        emailFeign.workerEmail(payment.getId());
         return "created";
 
 //        ClientDto clientDto = clientFeign.findById(payment.getClientId());

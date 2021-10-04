@@ -15,6 +15,8 @@ public class PaymentDto {
 
     private List<Type> type;
 
+    private double totalCost;
+
     private String senderName;
 
 

@@ -10,4 +10,5 @@ public class Type {
 
     private String type;
     private double cost;
+    private String receiver;
 }
