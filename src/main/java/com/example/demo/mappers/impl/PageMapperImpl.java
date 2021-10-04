@@ -34,7 +34,7 @@ public class PageMapperImpl implements PageMapper {
         PaymentDto dto = new PaymentDto();
         dto.setId(p.getId());
         dto.setType(p.getType());
-        dto.setCost(p.getCost());
+//        dto.setCost(p.getCost());
         dto.setSenderName(clientFeign.findById(p.getClientId()).getSenderName());
         return dto;
     }
@@ -44,7 +44,7 @@ public class PageMapperImpl implements PageMapper {
         PaymentDto paymentDto = new PaymentDto();
         paymentDto.setId(payment.getId());
         paymentDto.setType(payment.getType());
-        paymentDto.setCost(payment.getCost());
+//      paymentDto.setCost(payment.getCost());
         paymentDto.setSenderName(clientFeign.findById(payment.getClientId()).getSenderName());
         return paymentDto;
     }

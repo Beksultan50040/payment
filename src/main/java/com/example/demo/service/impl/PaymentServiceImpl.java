@@ -36,8 +36,8 @@ public class PaymentServiceImpl implements PaymentService {
 
         ClientDto clientDto = clientFeign.findById(payment.getClientId());
 
-        emailFeign.clientEmail(clientDto.getEmail());
-        emailFeign.workerEmail(payment.getId());
+//        emailFeign.clientEmail(clientDto.getEmail());
+//        emailFeign.workerEmail(payment.getId());
         return "created";
 
 //        ClientDto clientDto = clientFeign.findById(payment.getClientId());

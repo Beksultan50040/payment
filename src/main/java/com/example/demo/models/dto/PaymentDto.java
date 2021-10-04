@@ -1,7 +1,10 @@
 package com.example.demo.models.dto;
 
+import com.example.demo.models.Type;
 import lombok.Data;
 import org.springframework.data.elasticsearch.annotations.Document;
+
+import java.util.List;
 
 @Data
 
@@ -10,12 +13,7 @@ public class PaymentDto {
 
     private String id;
 
-
-    private String type;
-
-
-    private double cost;
-
+    private List<Type> type;
 
     private String senderName;
 
